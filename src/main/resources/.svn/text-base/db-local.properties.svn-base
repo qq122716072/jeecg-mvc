@@ -1,0 +1,28 @@
+driver.className = oracle.jdbc.driver.OracleDriver
+jdbc.url = jdbc:oracle:thin:@192.168.1.230:1521:orcl
+jdbc.username = emerp
+jdbc.pwd = e97896
+
+#本地数据源
+#jdbc.url = jdbc:oracle:thin:@192.168.220.9:1521:orcl
+#jdbc.username = account
+#jdbc.pwd = 123123
+
+# 财务数据源
+finance.jdbc.url = jdbc:oracle:thin:@192.168.1.230:1521:orcl
+finance.jdbc.username = finance
+finance.jdbc.pwd = finance123
+
+
+#PAY
+pay.url = jdbc:oracle:thin:@192.168.1.230:1521:orcl
+pay.username = pay
+pay.pwd = pay0906
+# AMIB
+amib.url = jdbc:oracle:thin:@192.168.1.230:1521:orcl
+amib.username = amib
+amib.pwd = amib
+# OA
+oa.url = jdbc:oracle:thin:@192.168.1.230:1521:orcl
+oa.username = oa_v20
+oa.pwd = oav2727

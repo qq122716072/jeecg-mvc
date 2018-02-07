@@ -1,0 +1,150 @@
+<beans>
+	<properties location="classpath:db-local.properties" />
+
+	<bean id="dataSource" class="com.emotte.eserver.core.db.EDataSource">
+		<property name="driverClassName" value="${driver.className}" />
+
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.pwd}" />
+
+		<property name="initialSize" value="5" />
+		<property name="maxTotal" value="20" />
+		<property name="minIdle" value="2" />
+		<property name="maxIdle" value="20" />
+		<property name="maxWaitMillis" value="60000" />
+	</bean>
+
+
+	<bean id="sqlSessionFactory" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource" />
+		<property name="scanPackage" value="com.emotte.emerp.*.service" />
+	</bean>
+
+	<bean id="sqlSessionFactory02" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource" />
+		<property name="scanPackage" value="com.emotte.**.emerp.*.service" />
+	</bean>
+	<bean id="sqlSessionFactory03" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource" />
+		<property name="scanPackage" value="com.emotte.*.comment.service" />
+	</bean>
+	<bean id="sqlSessionFactory04" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource" />
+		<property name="scanPackage" value="com.emotte.emp.service" />
+	</bean>
+
+	<bean id="sqlSessionFactory05" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource" />
+		<property name="scanPackage" value="com.emotte.**.local.service" />
+	</bean>
+	
+	<bean id="dataSource2" class="com.emotte.eserver.core.db.EDataSource">
+		<property name="driverClassName" value="${driver.className}" />
+
+		<property name="url" value="${finance.jdbc.url}" />
+		<property name="username" value="${finance.jdbc.username}" />
+		<property name="password" value="${finance.jdbc.pwd}" />
+
+		<property name="initialSize" value="5" />
+		<property name="maxTotal" value="20" />
+		<property name="minIdle" value="2" />
+		<property name="maxIdle" value="20" />
+		<property name="maxWaitMillis" value="60000" />
+	</bean>
+
+	<bean id="sqlSessionFactory21" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource2" />
+		<property name="scanPackage" value="com.emotte.finance.service" />
+	</bean>
+	<bean id="sqlSessionFactory22" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource2" />
+		<property name="scanPackage" value="com.emotte.**.finance.service" />
+	</bean>
+
+	<bean id="dataSource3" class="com.emotte.eserver.core.db.EDataSource">
+		<property name="driverClassName" value="${driver.className}" />
+
+		<property name="url" value="${pay.url}" />
+		<property name="username" value="${pay.username}" />
+		<property name="password" value="${pay.pwd}" />
+
+		<property name="initialSize" value="5" />
+		<property name="maxTotal" value="20" />
+		<property name="minIdle" value="2" />
+		<property name="maxIdle" value="20" />
+		<property name="maxWaitMillis" value="60000" />
+	</bean>
+
+	<bean id="sqlSessionFactory31" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource3" />
+		<property name="scanPackage" value="com.emotte.pay.*.service" />
+	</bean>
+	<bean id="sqlSessionFactory32" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource3" />
+		<property name="scanPackage" value="com.emotte.*.pay.service" />
+	</bean>
+	<bean id="dataSource4" class="com.emotte.eserver.core.db.EDataSource">
+		<property name="driverClassName" value="${driver.className}" />
+
+		<property name="url" value="${amib.url}" />
+		<property name="username" value="${amib.username}" />
+		<property name="password" value="${amib.pwd}" />
+
+		<property name="initialSize" value="5" />
+		<property name="maxTotal" value="20" />
+		<property name="minIdle" value="2" />
+		<property name="maxIdle" value="20" />
+		<property name="maxWaitMillis" value="60000" />
+	</bean>
+
+	<bean id="sqlSessionFactory41" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource4" />
+		<property name="scanPackage" value="com.emotte.*.amib.service" />
+	</bean>
+	<bean id="dataSource5" class="com.emotte.eserver.core.db.EDataSource">
+		<property name="driverClassName" value="${driver.className}" />
+
+		<property name="url" value="${oa.url}" />
+		<property name="username" value="${oa.username}" />
+		<property name="password" value="${oa.pwd}" />
+
+		<property name="initialSize" value="5" />
+		<property name="maxTotal" value="20" />
+		<property name="minIdle" value="2" />
+		<property name="maxIdle" value="20" />
+		<property name="maxWaitMillis" value="60000" />
+	</bean>
+
+	<bean id="sqlSessionFactory51" class="com.emotte.eserver.core.db.ESessionFactory">
+		<property name="dataSource" ref="dataSource5" />
+		<property name="scanPackage" value="com.emotte.*.oa.service" />
+	</bean>
+
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxIdle" value="1" />
+		<property name="maxTotal" value="5" />
+		<property name="minIdle" value="1" />
+		<property name="maxWaitMillis" value="5000" />
+	</bean>
+	<bean id="jedisPool" class="com.emotte.eserver.core.jedis.EJedisPool"
+		init-method="initMethod">
+		<property name="config" ref="jedisPoolConfig" />
+		<property name="host" value="192.168.1.232" />
+		<property name="port" value="12345" />
+		<property name="pass" value="8IP#EFcLHKu4=" />
+	</bean>
+	
+<!-- kernel包短信工具注入的jedis配置  yj-->	
+	<bean id="jedisPool" class="com.emotte.kernel.redis.EJedisPool"
+		init-method="initMethod">
+		<property name="config" ref="jedisPoolConfig" />
+		<property name="host" value="192.168.1.232" />
+		<property name="port" value="12345" />
+		<property name="pass" value="8IP#EFcLHKu4=" />
+	</bean>
+	<bean id="smsHelper" class="com.emotte.kernel.sms.SMSRedisHelper">
+		<property name="pool" ref="jedisPool" />
+	</bean>
+	
+</beans>

@@ -1,0 +1,10 @@
+driver.className = oracle.jdbc.driver.OracleDriver
+# emerp数据源
+jdbc.url = jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.10.244)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.10.242)(PORT = 1521))(LOAD_BALANCE = yes)(FAILOVER = ON)(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = rac11g)(FAILOVER_MODE=(TYPE = SELECT)(METHOD = BASIC)(RETIRES = 20)(DELAY = 15))))
+jdbc.username = emerp
+jdbc.pwd = erp411
+
+# 财务数据源
+finance.jdbc.url = jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.10.244)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.10.242)(PORT = 1521))(LOAD_BALANCE = yes)(FAILOVER = ON)(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = rac11g)(FAILOVER_MODE=(TYPE = SELECT)(METHOD = BASIC)(RETIRES = 20)(DELAY = 15))))
+finance.jdbc.username = finance
+finance.jdbc.pwd = fina679kj

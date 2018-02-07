@@ -1,0 +1,58 @@
+10
+
+dir
+41030
+svn://192.168.1.228/repo1/architecture/eserver/trunk/eserver/src/main/java/com/emotte/eserver
+svn://192.168.1.228/repo1
+
+
+
+2018-01-19T11:33:14.779167Z
+40986
+chengjing
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+eb03f1b4-e4df-11e5-add3-0f92ac408686
+
+balancing
+dir
+
+boost
+dir
+
+constant
+dir
+
+core
+dir
+
+dispatcher
+dir
+
+kafka
+dir
+
+listener
+dir
+
+loader
+dir
+
+protocol
+dir
+
+thread
+dir
+

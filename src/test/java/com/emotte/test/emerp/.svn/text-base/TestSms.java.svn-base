@@ -1,0 +1,30 @@
+package com.emotte.test.emerp;
+
+import com.emotte.BaseTestService;
+import com.emotte.eserver.core.context.Context;
+import com.emotte.kernel.sms.SMSRedisHelper;
+
+import net.sf.json.JSONObject;
+
+public class TestSms extends BaseTestService {
+	@org.junit.Test
+	public  void Test(){
+		try {
+			init();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JSONObject msg = new JSONObject();
+		String[] params = new String[]{"88888","2017-08-09","2017-12-08"};
+		msg.accumulate("mobiles", "15901061713");
+		msg.accumulate("templet", "crm_1");
+		msg.accumulate("channel", "sys");
+		msg.accumulate("rate", "1");
+		msg.accumulate("system", "salaryWarn");
+		msg.accumulate("params",params);
+		SMSRedisHelper smsHe = (SMSRedisHelper) Context.getBean("smsHelper");
+		String s = smsHe.send(msg.toString());
+		System.out.println(s);
+	}
+}
